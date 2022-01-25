@@ -4494,8 +4494,9 @@ fieldset {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: -15px;
+  margin: -15px -15px 0 -15px;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .contact-page__row--item {
