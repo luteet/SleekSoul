@@ -456,6 +456,7 @@ body.addEventListener('click', function (e) {
 
 
   let productElemBtn = thisTarget.closest('.product__color--elem');
+  
   if (productElemBtn) {
 
     if (!productElemBtn.classList.contains('_active')) {
@@ -567,7 +568,40 @@ body.addEventListener('click', function (e) {
   let productSubmit = thisTarget.closest('.product__submit--btn');
   if (productSubmit) {
     e.preventDefault();
-    productSubmit.parentNode.querySelector('.product__submit--message').classList.add('_active');
+    let productColor, productColorCheck, requiredMessage, thanksMessage;
+
+    try {
+      productColor = document.querySelectorAll('.product__color--radio');
+      productColor.forEach(element => {
+        if(element.checked) productColorCheck = true;
+      })
+
+    } catch {
+      
+    }
+
+    requiredMessage = productSubmit.parentNode.querySelector('.product__submit--message._required-message');
+    thanksMessage = productSubmit.parentNode.querySelector('.product__submit--message._thanks-message');
+
+    
+    if(!productColorCheck) {
+
+      if(requiredMessage) requiredMessage.classList.add('_active');
+      
+    } else if(productColorCheck) {
+      
+      if(requiredMessage) requiredMessage.classList.remove('_active');
+      if(thanksMessage) thanksMessage.classList.add('_active');
+      
+    }
+    
+  } else {
+    let messages = document.querySelectorAll('.product__submit--message');
+    if(messages[0]) {
+      messages.forEach(element => {
+        element.classList.remove('_active');
+      })
+    }
   }
 
 
@@ -589,7 +623,41 @@ body.addEventListener('click', function (e) {
     }
     
   } */
+  let checkFormSubmit = thisTarget.closest('._check-form');
+  if(checkFormSubmit) {
+    e.preventDefault();
 
+    let form = checkFormSubmit.closest('form'), checkError = true;
+    if(form) {
+      let inputs = form.querySelectorAll('._input, ._textarea');
+
+      if(inputs[0]) {
+
+        inputs.forEach(element => {
+          if(!element.value && element.required) {
+            
+            element.classList.add('_error');
+            checkError = false;
+            
+            element.oninput = function () {
+              element.classList.remove('_error');
+
+            }
+
+          }
+        })
+
+        if(checkError) {
+          popup({
+            id: checkFormSubmit.dataset.idPopup,
+            html: html,
+            body: body,
+          });
+        }
+        
+      }
+    }
+  }
 
 
 
