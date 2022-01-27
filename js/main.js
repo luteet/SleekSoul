@@ -696,7 +696,6 @@ if(document.querySelector('.intro__slider')) {
   }
 }
 
-
 new Swiper('.reviews__slider', {
 
   spaceBetween: 15,
