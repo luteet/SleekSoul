@@ -1358,7 +1358,7 @@ button.swiper-pagination-bullet {
 
 @font-face {
   font-family: "sleek-soul-icons";
-  src: url("sleek-soul-icons.ttf?mv327b") format("truetype"), url("sleek-soul-icons.woff?mv327b") format("woff"), url("sleek-soul-icons.svg?mv327b#sleek-soul-icons") format("svg");
+  src: url("sleek-soul-icons.ttf?qb42vv") format("truetype"), url("sleek-soul-icons.woff?qb42vv") format("woff"), url("sleek-soul-icons.svg?qb42vv#sleek-oul-icons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -1377,6 +1377,10 @@ button.swiper-pagination-bullet {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-checkmark::before {
+  content: "\e904";
 }
 
 ._icon-attach::before {
@@ -1516,7 +1520,7 @@ body._popup-active {
   height: 827px;
   border-radius: 50%;
   opacity: 0.2;
-  background: radial-gradient(circle, #66cc91 0%, rgba(255, 255, 255, 0) 50%);
+  background: radial-gradient(circle, #66cc91 0%, transparent 50%);
 }
 
 ._decor-min-elem {
@@ -1718,13 +1722,13 @@ body._popup-active {
 
 ._policy-content p {
   padding-top: 15px;
-  line-height: 100%;
+  line-height: 150%;
   color: var(--black);
   opacity: 0.6;
 }
 
 ._policy-content ul {
-  line-height: 135%;
+  line-height: 150%;
 }
 
 ._policy-content li {
@@ -1916,10 +1920,6 @@ fieldset {
   background-color: rgba(248, 0, 0, 0.03);
 }
 
-/* ._input {
-
-} */
-
 ._input-min-info {
   display: block;
   padding: 5px 0 0 30px;
@@ -1984,7 +1984,10 @@ fieldset {
 }
 
 ._checkbox-label::before {
-  content: "✓";
+  font-family: "sleek-soul-icons" !important;
+  font-size: 11px;
+  font-weight: 300;
+  content: "\e904";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1995,7 +1998,7 @@ fieldset {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 700;
-  padding-top: 3px;
+  padding-top: 2px;
   padding-left: 2px;
   color: transparent;
   background-color: transparent;
@@ -2110,6 +2113,11 @@ fieldset {
 
 ._section-title._light {
   color: var(--white);
+}
+
+._section-title mark {
+  color: var(--accent-v2);
+  background-color: transparent;
 }
 
 ._section-title._min {
@@ -4806,7 +4814,7 @@ fieldset {
   max-width: 680px;
   color: var(--black);
   opacity: 0.6;
-  line-height: 100%;
+  line-height: 150%;
 }
 
 .privacy-policy-footer__text a {
@@ -5927,7 +5935,7 @@ fieldset {
   }
 
   .reviews__leave-review {
-    padding-top: 50px;
+    padding-top: 65px;
   }
 
   .contacts__container {
